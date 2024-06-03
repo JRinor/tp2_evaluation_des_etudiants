@@ -1,0 +1,31 @@
+SCENARIO : 
+
+1.Si le mail est invalide:
+- Le programme demande de réessayer jusqu'à ce qu'un email valide soit fourni.
+
+2.Si la date de l'examen est invalide:
+- Le programme demande de réessayer jusqu'à ce qu'une date valide (format jj/mm/aaaa) soit fournie.
+
+3.Si l'utilisateur entre une note en dehors de la plage acceptable (par exemple, une note négative ou supérieure à 20):
+- Le programme informe que la note est invalide et demande de réessayer.
+
+4.Si aucune note n'est entrée:
+- Le calcul de la moyenne et de la médiane n'est pas possible, et le programme doit gérer cette situation (peut-être en affichant un message d'erreur ou en utilisant des valeurs par défaut).
+
+6.Si le nombre de notes entré est zéro:
+- Le programme informe que le calcul des statistiques n'est pas possible.
+
+7.Si toutes les notes sont les mêmes:
+- La moyenne et la médiane seront égales à cette note.
+
+8.Si l'utilisateur entre un nombre impair de notes:
+- La médiane sera la valeur au milieu de la liste triée.
+
+9.Si l'utilisateur entre un nombre pair de notes:
+- La médiane sera la moyenne des deux valeurs centrales de la liste triée.
+
+10.Si l'utilisateur entre un prénom ou un nom vide:
+- Le programme doit gérer cette situation et peut-être demander de réessayer ou afficher un message d'erreur.
+
+11.Si l'utilisateur entre des caractères non numériques pour une note:
+- Le programme doit informer l'utilisateur de l'erreur et demander de réessayer avec une entrée valide.
