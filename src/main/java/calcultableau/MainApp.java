@@ -13,11 +13,27 @@ public class MainApp {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Veuillez entrer votre prénom");
-        String prenom = sc.nextLine();
+        String prenom = "";
+        for (boolean prenomValid = false; !prenomValid; ) {
+            System.out.println("Veuillez entrer votre prénom");
+            prenom = sc.nextLine();
+            if (prenom.matches("[a-zA-Z]+")) {
+                prenomValid = true;
+            } else {
+                System.out.println("Invalide");
+            }
+        }
 
-        System.out.println("Veuillez entrer votre nom");
-        String nom = sc.nextLine();
+        String nom = "";
+        for (boolean nomValid = false; !nomValid; ) {
+            System.out.println("Veuillez entrer votre nom");
+            nom = sc.nextLine();
+            if (nom.matches("[a-zA-Z]+")) {
+                nomValid = true;
+            } else {
+                System.out.println("Invalide");
+            }
+        }
 
         String email = "";
         for (boolean valid = false; !valid; ) {
@@ -26,7 +42,7 @@ public class MainApp {
             if (UtilisateurTab.validateEmail(email)) {
                 valid = true;
             } else {
-                System.out.println("Email invalide");
+                System.out.println("Invalide");
             }
         }
 
@@ -37,7 +53,7 @@ public class MainApp {
             if (dateExamen.matches("\\d{2}/\\d{2}/\\d{4}")) {
                 valid = true;
             } else {
-                System.out.println("Date invalide");
+                System.out.println("Invalide");
             }
         }
 
@@ -49,6 +65,12 @@ public class MainApp {
         for (int i = 0; i < n; i++) {
             System.out.println("Veuillez entrer la note de l'étudiant " + (i + 1) + " :" );
             int note = sc.nextInt();
+            if (note <0 || note > 20) {
+                System.out.println("La note doit être comprise entre 0 et 20");
+                i--;
+                continue;
+            }
+
             calcul.ajouterNote(note);
         }
         System.out.println("Informations sur l'utilisateur :");
