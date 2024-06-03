@@ -19,7 +19,7 @@ public class MainApp {
         System.out.println("Veuillez entrer votre nom");
         String nom = sc.nextLine();
 
-        String email;
+        String email = "";
         for (boolean valid = false; !valid; ) {
             System.out.println("Veuillez entrer votre email");
             email = sc.nextLine();
@@ -30,8 +30,16 @@ public class MainApp {
             }
         }
 
-        System.out.println("Veuillez entrer la date de l'examen");
-        String dateExamen = sc.nextLine();
+        String dateExamen = "";
+        for (boolean valid = false; !valid; ) {
+            System.out.println("Veuillez entrer la date de l'examen (jj/mm/aaaa)");
+            dateExamen = sc.nextLine();
+            if (dateExamen.matches("\\d{2}/\\d{2}/\\d{4}")) {
+                valid = true;
+            } else {
+                System.out.println("Date invalide");
+            }
+        }
 
         UtilisateurTab utilisateur = new UtilisateurTab(prenom, nom, email, dateExamen);
 
@@ -39,11 +47,14 @@ public class MainApp {
         System.out.println("Veuillez entrer le nombre de notes :");
         int n = sc.nextInt();
         for (int i = 0; i < n; i++) {
-            System.out.println("Veuillez entrer une note :");
+            System.out.println("Veuillez entrer la note de l'étudiant " + (i + 1) + " :" );
             int note = sc.nextInt();
             calcul.ajouterNote(note);
         }
-
+        System.out.println("Informations sur l'utilisateur :");
+        System.out.println(utilisateur.StringBuilder());
+        System.out.println("Informations sur les notes :");
+        System.out.println(calcul.StringBuilder());
 
         /*
         // LA TAILLE DU TABLEAU

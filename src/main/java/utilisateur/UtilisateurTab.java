@@ -26,4 +26,12 @@ public class UtilisateurTab {
         this.dateExamen = dateExamen;
     }
 
+    public String StringBuilder() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Prénom: ").append(prenom).append("\n");
+        sb.append("Nom: ").append(nom).append("\n");
+        sb.append("Email: ").append(email).append("\n");
+        sb.append("Date d'examen: ").append(dateExamen).append("\n");
+        return sb.toString();
+    }
 }

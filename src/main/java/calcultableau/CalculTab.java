@@ -2,7 +2,7 @@ package calcultableau;
 import java.util.*;
 
 public class CalculTab {
-    private ArrayList<Integer> notes;
+    private ArrayList<Integer> notes = new ArrayList<>();
     private int nombreEtudiants;
     private double moyenne;
     private double mediane;
@@ -21,18 +21,26 @@ public class CalculTab {
         return (double) sum / notes.size();
     }
 
+
     public int getNombreEtudiants() {
-        return nombreEtudiants;
+        return nombreEtudiants = notes.size();
     }
+
     public double getMediane() {
+        Collections.sort(notes);
+        if (notes.size() % 2 == 0) {
+            mediane = (notes.get(notes.size() / 2) + notes.get(notes.size() / 2 - 1)) / 2;
+        } else {
+            mediane = notes.get(notes.size() / 2);
+        }
         return mediane;
     }
 
     public String StringBuilder() {
         StringBuilder sb = new StringBuilder();
-        sb.append(nombreEtudiants);
-        sb.append(moyenne);
-        sb.append(mediane);
+        sb.append("Nombre d'étudiants: ").append(getNombreEtudiants()).append("\n");
+        sb.append("Moyenne: ").append(getMoyenne(notes)).append("\n");
+        sb.append("Mediane: ").append(getMediane()).append("\n");
         return sb.toString();
     }
 }
