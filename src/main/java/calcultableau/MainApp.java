@@ -62,11 +62,15 @@ public class MainApp {
         CalculTab calcul = new CalculTab();
         System.out.println("Veuillez entrer le nombre de notes :");
         while (!sc.hasNextInt()) {
-            System.out.println("Ce n'est pas un nombre entier. Veuillez entrer un nombre entier.");
+            System.out.println("Veuillez entrer un nombre entier");
             sc.next();
         }
         int n = sc.nextInt();
-        for (int i = 0; i < n; i++) {
+        if (n == 0) {
+            System.out.println("Le calcul des statistiques n'est pas possible");
+            return;
+        }
+        else for (int i = 0; i < n; i++) {
             System.out.println("Veuillez entrer la note de l'étudiant " + (i + 1) + " :" );
             while (!sc.hasNextInt()) {
                 System.out.println("Veuillez entrer un nombre entier.");
@@ -81,6 +85,7 @@ public class MainApp {
 
             calcul.ajouterNote(note);
         }
+
         System.out.println("Informations sur l'utilisateur :");
         System.out.println(utilisateur.StringBuilder());
         System.out.println("Informations sur les notes :");
