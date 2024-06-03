@@ -37,6 +37,31 @@ public class CalculTabTest {
     }
 
     @Test
+    public void testGetMedianeWithOddNumberOfNotes() {
+        CalculTab calcul = new CalculTab();
+        calcul.ajouterNote(10);
+        calcul.ajouterNote(20);
+        calcul.ajouterNote(30);
+        assertEquals(20.0, calcul.getMediane(), 0.01);
+    }
+
+    @Test
+    public void testGetMedianeWithEvenNumberOfNotes() {
+        CalculTab calcul = new CalculTab();
+        calcul.ajouterNote(10);
+        calcul.ajouterNote(20);
+        calcul.ajouterNote(30);
+        calcul.ajouterNote(40);
+        assertEquals(25.0, calcul.getMediane(), 0.01);
+    }
+
+    @Test
+    public void testGetMedianeWithNoNotes() {
+        CalculTab calcul = new CalculTab();
+        assertEquals(0.0, calcul.getMediane(), 0.01);
+    }
+
+    @Test
     public void testStringBuilder() {
         CalculTab calcul = new CalculTab();
         calcul.ajouterNote(10);

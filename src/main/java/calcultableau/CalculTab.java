@@ -26,9 +26,12 @@ public class CalculTab {
     }
 
     public double getMediane() {
+        if (notes.isEmpty()) {
+            return 0.0;
+        }
         Collections.sort(notes);
         if (notes.size() % 2 == 0) {
-            mediane = (notes.get(notes.size() / 2) + notes.get(notes.size() / 2 - 1)) / 2;
+            mediane = (notes.get(notes.size() / 2) + notes.get(notes.size() / 2 - 1)) / 2.0;
         } else {
             mediane = notes.get(notes.size() / 2);
         }

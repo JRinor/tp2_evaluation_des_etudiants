@@ -61,9 +61,17 @@ public class MainApp {
 
         CalculTab calcul = new CalculTab();
         System.out.println("Veuillez entrer le nombre de notes :");
+        while (!sc.hasNextInt()) {
+            System.out.println("Ce n'est pas un nombre entier. Veuillez entrer un nombre entier.");
+            sc.next();
+        }
         int n = sc.nextInt();
         for (int i = 0; i < n; i++) {
             System.out.println("Veuillez entrer la note de l'étudiant " + (i + 1) + " :" );
+            while (!sc.hasNextInt()) {
+                System.out.println("Veuillez entrer un nombre entier.");
+                sc.next();
+            }
             int note = sc.nextInt();
             if (note <0 || note > 20) {
                 System.out.println("La note doit être comprise entre 0 et 20");
