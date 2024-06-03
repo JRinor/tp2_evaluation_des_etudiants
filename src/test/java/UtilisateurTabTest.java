@@ -17,4 +17,13 @@ public class UtilisateurTabTest {
         String expected = "Prénom: Rinor\nNom: Januzi\nEmail: rinor@gmail.com\nDate d'examen: 01/01/2024\n";
         assertEquals(expected, utilisateur.StringBuilder());
     }
+
+    @Test
+    public void testConstructorAndGetters() {
+        UtilisateurTab utilisateur = new UtilisateurTab("Rinor", "Januzi", "rinor@gmail.com", "01/01/2024");
+        assertEquals("Rinor", utilisateur.getPrenom());
+        assertEquals("Januzi", utilisateur.getNom());
+        assertEquals("rinor@gmail.com", utilisateur.getEmail());
+        assertEquals("01/01/2024", utilisateur.getDateExamen());
+    }
 }

@@ -1,7 +1,6 @@
-package calcultableau;
-
 import org.junit.Test;
 import static org.junit.Assert.*;
+import calcultableau.CalculTab;
 
 public class CalculTabTest {
 

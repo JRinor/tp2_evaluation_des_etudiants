@@ -34,4 +34,22 @@ public class UtilisateurTab {
         sb.append("Date d'examen: ").append(dateExamen).append("\n");
         return sb.toString();
     }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getDateExamen() {
+        return dateExamen;
+    }
+
+
 }
