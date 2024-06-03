@@ -13,14 +13,13 @@ public class CalculTab {
     }
 
 
-    public double getMoyenne(ArrayList<Integer> notes) {
+    public double getMoyenne() {
         int sum = 0;
         for (int i = 0; i < notes.size(); i++) {
             sum += notes.get(i);
         }
         return (double) sum / notes.size();
     }
-
 
     public int getNombreEtudiants() {
         return nombreEtudiants = notes.size();
@@ -39,7 +38,7 @@ public class CalculTab {
     public String StringBuilder() {
         StringBuilder sb = new StringBuilder();
         sb.append("Nombre d'étudiants: ").append(getNombreEtudiants()).append("\n");
-        sb.append("Moyenne: ").append(getMoyenne(notes)).append("\n");
+        sb.append("Moyenne: ").append(getMoyenne()).append("\n");
         sb.append("Mediane: ").append(getMediane()).append("\n");
         return sb.toString();
     }
