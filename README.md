@@ -1,55 +1,38 @@
 # TP 2 – Évaluation des étudiants
 
-## Étape par Étape pour Réaliser le Travail
+Il s'agit d'une application Java qui gère les notes des étudiants et calcule des statistiques telles que la note moyenne et la note médiane. L'application valide également les entrées de l'utilisateur telles que l'e-mail, la date et les notes.
 
-### Étape 1: Concevoir la structure de l'application et modifier le code
-1. **Créez les packages `calcultableau` et `utilisateur` si ce n'est pas déjà fait.**
-2. **Ajoutez une classe `UtilisateurTab` dans le package `utilisateur`.**
+## Fonctionnalités
 
-### Étape 2: Créer la classe `UtilisateurTab`
-1. **Définissez les attributs nécessaires (`prenom`, `nom`, `email`, `dateExamen`).**
-2. **Ajoutez un constructeur pour initialiser ces attributs.**
-3. **Ajoutez une validation pour l'email avec une regex.**
+1. **Validation de l'utilisateur** : L'application valide les entrées de l'utilisateur telles que l'e-mail, la date et les notes. Elle s'assure que l'e-mail est au bon format, que la date est au format "jj/mm/aaaa", et que les notes sont comprises entre 0 et 20.
 
-### Étape 3: Séparer la classe principale avec `main()` de la classe `CalculTab`
-1. **Créez une classe `MainApp` dans le package `calcultableau`.**
-2. **Déplacez la méthode `main` de `CalculTab` à `MainApp`.**
+2. **Gestion des notes** : L'application permet à l'utilisateur de saisir les notes des étudiants et les stocke dans une ArrayList.
 
-### Étape 4: Modifier `CalculTab`
-1. **Remplacez le tableau fixe `tab[]` par une `ArrayList` (ou une autre collection).**
-2. **Ajoutez des méthodes pour ajouter des notes, calculer la somme, la moyenne, et la médiane.**
-3. **Utilisez `StringBuilder` pour une méthode `toString`.**
+3. **Calcul des statistiques** : L'application calcule la note moyenne et la note médiane. Elle gère différents scénarios tels que lorsqu'aucune note n'est saisie, lorsque toutes les notes sont identiques, ou lorsqu'un nombre impair ou pair de notes est saisi.
 
-### Étape 5: Compléter la classe principale `MainApp`
-1. **Ajoutez du code pour saisir les informations utilisateur.**
-2. **Ajoutez du code pour saisir les notes des étudiants.**
-3. **Appelez les méthodes de `CalculTab` pour calculer les statistiques.**
-4. **Affichez les résultats (nombre d'étudiants, moyenne, médiane).**
-5. **Affichez les informations utilisateur.**
+4. **Gestion des erreurs** : L'application gère les erreurs de manière élégante. Par exemple, elle informe l'utilisateur lorsqu'une note est en dehors de la plage acceptable, ou lorsque des caractères non numériques sont saisis pour une note.
 
-### Étape 6: Ajouter une méthode de tri et calculer la médiane
-1. **Ajoutez une méthode de tri des notes dans `CalculTab`.**
-2. **Calculez la médiane après avoir trié les notes.**
+## Structure du Code
 
-### Étape 7: Qualité de développement
-1. **Réfléchissez à la conception de votre application et écrivez un scénario.**
-2. **Utilisez un nommage clair et lisible pour les variables et méthodes.**
-3. **Écrivez des tests unitaires pour s'assurer d'une couverture d'au moins 50%.**
-4. **Utilisez des annotations avancées et AssertJ pour les tests.**
-5. **Documentez votre code avec des commentaires appropriés.**
+Le code est organisé en deux classes principales :
 
-### Étape 8: Travail Git
-1. **Faites des commits réguliers de votre projet.**
-2. **Regardez l'historique de votre dépôt Git.**
-3. **Utilisez l'outil de comparaison pour voir les différences entre deux versions.**
-4. **Testez `revert commit` pour revenir à une version précédente.**
+1. `UtilisateurTab` : Cette classe représente un utilisateur. Elle valide l'e-mail de l'utilisateur et formate les informations de l'utilisateur en une chaîne de caractères.
 
-### Étape 9: Approche TDD
-1. **Essayez de développer votre code en suivant l'approche TDD (Test-Driven Development).**
-2. **Écrivez d'abord des tests pour les fonctionnalités que vous allez développer.**
-3. **Implémentez les fonctionnalités pour que les tests passent.**
+2. `CalculTab` : Cette classe gère les notes et calcule la note moyenne et la note médiane. Elle formate également les statistiques des notes en une chaîne de caractères.
+
+La classe `MainApp` est le point d'entrée de l'application. Elle invite l'utilisateur à saisir ses informations et les notes des étudiants, puis affiche les informations de l'utilisateur et les statistiques des notes.
+
+## Comment Exécuter
+
+Il s'agit d'un projet Maven, vous pouvez donc le construire et l'exécuter à l'aide de l'outil de ligne de commande Maven. Voici les étapes :
+
+1. Naviguez jusqu'au répertoire du projet dans votre terminal.
+
+2. Construisez le projet en exécutant `mvn clean install`.
+
+3. Exécutez l'application en exécutant `mvn exec:java -Dexec.mainClass="calcultableau.MainApp"`.
 
 ## Tests
-1. **Utilisez le camel case pour nommer vos tests (e.g., `addTwoPositiveIntegersReturnsTheirSum`).**
-2. **Décrivez chaque étape des tests en utilisant Arrange/Act/Assert ou Given/When/Then.**
-3. **Utilisez l'annotation `@DisplayName` pour mieux nommer vos tests.**
+
+Le projet comprend des tests unitaires pour les classes `UtilisateurTab` et `CalculTab`. Vous pouvez exécuter les tests en exécutant `mvn test` dans votre terminal.
+
